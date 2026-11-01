@@ -1,52 +1,27 @@
-# Gaussian-Mixture-Model-Estimation-using-EM
-**ReadMe - Gaussian Mixture Model Estimation using EM**
+# Gaussian Mixture Model Estimation with Expectation–Maximization
 
-## Project Overview
+![NumPy](https://img.shields.io/badge/NumPy-from%20scratch-013243)
+![Type](https://img.shields.io/badge/graduate%20coursework-UC%20Riverside-lightgrey)
 
-This GitHub project focuses on implementing the Expectation-Maximization (EM) algorithm for estimating the parameters of a Gaussian Mixture Model (GMM). The assignment is implemented using Numpy and Matplotlib, showcasing proficiency in data manipulation, statistical modeling, and visualization.
+This project implements a Gaussian-mixture data generator and the EM algorithm from scratch in NumPy, without library GMM routines. It studies how well EM recovers the true parameters, both when the number of components is known and when it is misspecified.
 
+## Experiments
 
-## Project Structure
+1. **Data generation.** Samples are drawn from a 3-component multivariate GMM with known weights, means and covariances.
+2. **EM with the correct number of components.** The estimated weights, means and covariances are compared with the ground truth, and the true and estimated densities are plotted.
+3. **EM with a misspecified number of components.** EM is rerun with K ≠ 3 to observe how the estimated parameters and fit change.
+4. **Convergence.** Average negative log-likelihood and the estimated parameter values are tracked across iterations.
 
-- Core implementation of GMM estimation using EM.
-- Generation of GMM data for accurate and inaccurate knowledge of the number of components.
-- Visualization of convergence plots during parameter estimation.
+## Files
 
+| File | Content |
+|---|---|
+| `EM.ipynb` | Implementation, experiments and plots |
+| `EM_Report.pdf` | Write-up with results and observations |
 
-## Notes
+## Run
 
-- Avoid using pre-existing GMM functions; implement the GMM generator and EM algorithm from scratch.
-- Pay attention to the comments and sections marked TODO for code completion.
-- Contribute to the convergence script for a detailed analysis of the estimation process.
-
-## GMM Data Generation
-
-1. Accurate Knowledge of Components:
-   - Generates GMM data with three specified components.
-   - Utilizes Numpy for random data generation.
-   - Displays a scatter plot of the generated samples.
-
-## GMM Estimation with EM
-
-1. Accurate Number of Components:
-   - Implements EM algorithm for parameter estimation.
-   - Compares estimated parameters with ground truth values.
-   - Visualizes true and estimated distributions.
-
-2. Inaccurate Number of Components:
-   - Iterates over multiple values for the number of components.
-   - Studies and reports observations on parameter estimation.
-
-## Convergence Plots
-
-- Analyzes the progress of the EM algorithm through two convergence plots:
-   1. Average Negative Log-Likelihood (NLL) vs. Iterations.
-   2. Estimated Parameter Values vs. Iterations.
-
-## Results
-
-- Observe convergence plots to understand the behavior of the EM algorithm.
-- Compare estimated parameters with ground truth values for accurate knowledge.
-- Investigate the impact of inaccurate knowledge on parameter estimation.
-
-Feel free to reach out if you have any questions or encounter issues during execution.
+```bash
+pip install numpy scipy matplotlib
+jupyter notebook EM.ipynb
+```
